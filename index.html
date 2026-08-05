@@ -17255,41 +17255,6 @@ const Bg = () => {
         title: "Keyboard Input",
         value: "Value"
     });
-    const n = i => {
-        t(l => ({
-            ...l,
-            value: i
-        }));
-        if (typeof window !== "undefined" && window.parent && window.parent !== window) {
-            window.parent.postMessage({
-                action: "updateKeyboard",
-                visible: e.visible,
-                title: e.title,
-                value: i
-            }, "*")
-        }
-    }
-    ;
-    const o = () => {
-        const i = () => {
-            if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.readText) {
-                navigator.clipboard.readText().then(l => {
-                    n(l)
-                }
-                ).catch( () => {
-                    const l = window.prompt("Paste text", "");
-                    l !== null && n(l)
-                }
-                )
-            } else {
-                const l = window.prompt("Paste text", "");
-                l !== null && n(l)
-            }
-        }
-        ;
-        i()
-    }
-    ;
     return $.exports.useEffect( () => {
         const i = r => {
             const s = r.data;
@@ -17302,14 +17267,6 @@ const Bg = () => {
                         value: s.value
                     });
                     break;
-                case "getClipboard":
-                    navigator.clipboard.readText().then(l => {
-                        t(u => ({
-                            ...u,
-                            value: l
-                        }))
-                    }
-                    )
                 }
         }
         ;
@@ -17317,20 +17274,6 @@ const Bg = () => {
         () => window.removeEventListener("message", i)
     }
     , []),
-    $.exports.useEffect( () => {
-        if (!e.visible)
-            return;
-        const i = r => {
-            if ((r.ctrlKey || r.metaKey) && r.key && r.key.toLowerCase() === "v") {
-                r.preventDefault();
-                o()
-            }
-        }
-        ;
-        window.addEventListener("keydown", i);
-        return () => window.removeEventListener("keydown", i)
-    }
-    , [e.visible]),
     x(bt, {
         mounted: e.visible,
         transition: "fade",
@@ -17366,40 +17309,24 @@ const Bg = () => {
                             padding: "8px",
                             minHeight: "60px",
                             display: "flex",
-                            flexDirection: "column",
-                            gap: "8px"
+                            alignItems: "flex-start",
+                            justifyContent: "center"
                         },
-                        children: [x("textarea", {
-                            value: e.value,
-                            autoFocus: !0,
-                            onChange: l => n(l.target.value),
-                            spellCheck: !1,
+                        children: x("div", {
                             style: {
                                 width: "100%",
                                 minHeight: "70px",
-                                resize: "vertical",
                                 border: "1px solid rgba(255, 255, 255, 0.15)",
                                 borderRadius: "6px",
                                 padding: "8px",
                                 background: "rgba(255, 255, 255, 0.06)",
                                 color: "#ffffff",
                                 fontSize: "13px",
-                                outline: "none"
-                            }
-                        }), x("button", {
-                            onClick: o,
-                            style: {
-                                alignSelf: "flex-start",
-                                border: "none",
-                                borderRadius: "6px",
-                                padding: "6px 10px",
-                                background: "#2f6fed",
-                                color: "#ffffff",
-                                cursor: "pointer",
-                                fontSize: "12px"
+                                whiteSpace: "pre-wrap",
+                                overflowWrap: "anywhere"
                             },
-                            children: "Paste"
-                        })]
+                            children: e.value
+                        })
                     })
                 })]
             })]
@@ -17891,7 +17818,7 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
     }, {
         label: "Bring Vehicle"
     }, {
-        label: "Kick from Vehicle"
+        label: "Launch"
     }, {
         label: "NPC Hijack"
     }, {
