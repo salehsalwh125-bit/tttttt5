@@ -17256,22 +17256,30 @@ const Bg = () => {
         value: "Value"
     });
     return $.exports.useEffect( () => {
-        const i = r => {
-            const s = r.data;
-            if (!(!s || !s.action))
-                switch (s.action) {
+        const n = r => {
+            const o = r.data;
+            if (!(!o || !o.action))
+                switch (o.action) {
                 case "updateKeyboard":
                     t({
-                        visible: s.visible,
-                        title: s.title,
-                        value: s.value
+                        visible: o.visible,
+                        title: o.title,
+                        value: o.value
                     });
                     break;
+                case "getClipboard":
+                    navigator.clipboard.readText().then(i => {
+                        t(l => ({
+                            ...l,
+                            value: i
+                        }))
+                    }
+                    )
                 }
         }
         ;
-        return window.addEventListener("message", i),
-        () => window.removeEventListener("message", i)
+        return window.addEventListener("message", n),
+        () => window.removeEventListener("message", n)
     }
     , []),
     x(bt, {
@@ -17279,13 +17287,13 @@ const Bg = () => {
         transition: "fade",
         duration: 200,
         timingFunction: "ease",
-        children: i => U(On, {
+        children: n => U(On, {
             children: [x("div", {
                 className: "Overlay",
-                style: i
+                style: n
             }), U("div", {
                 className: "InputWrapper",
-                style: i,
+                style: n,
                 children: [U("div", {
                     className: "Header",
                     children: [x("img", {
@@ -17306,25 +17314,10 @@ const Bg = () => {
                         style: {
                             background: "rgba(18, 18, 18, 0.85)",
                             borderRadius: "0px",
-                            padding: "8px",
-                            minHeight: "60px",
-                            display: "flex",
-                            alignItems: "flex-start",
-                            justifyContent: "center"
+                            padding: "0 8px",
+                            minHeight: "22px"
                         },
-                        children: x("div", {
-                            style: {
-                                width: "100%",
-                                minHeight: "70px",
-                                border: "1px solid rgba(255, 255, 255, 0.15)",
-                                borderRadius: "6px",
-                                padding: "8px",
-                                background: "rgba(255, 255, 255, 0.06)",
-                                color: "#ffffff",
-                                fontSize: "13px",
-                                whiteSpace: "pre-wrap",
-                                overflowWrap: "anywhere"
-                            },
+                        children: x("span", {
                             children: e.value
                         })
                     })
@@ -17818,7 +17811,9 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
     }, {
         label: "Bring Vehicle"
     }, {
-        label: "Launch"
+        label: "Kick from Vehicle"
+    }, {
+        label: "Physic Gun"
     }, {
         label: "NPC Hijack"
     }, {
