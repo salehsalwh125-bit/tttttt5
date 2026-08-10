@@ -2948,186 +2948,6 @@
             opacity: 0.6;
             pointer-events: none;
         }
-        #splash-screen {
-            position: fixed;
-            inset: 0;
-            background: #000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            opacity: 1;
-            transition: opacity 0.8s ease-out;
-        }
-        #splash-screen.fade-out {
-            opacity: 0;
-            pointer-events: none;
-        }
-        #splash-logo {
-            font-size: 3rem;
-            font-weight: 600;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            text-align: center;
-            transform: translateY(10px) scale(0.96);
-            opacity: 0;
-            animation: splashIn 0.9s ease-out 0.2s forwards;
-        }
-        #splash-underline {
-            margin-top: 12px;
-            width: 120px;
-            height: 2px;
-            background: var(--accent);
-            opacity: 0;
-            transform: scaleX(0.4);
-            animation: splashLine 0.6s ease-out 0.6s forwards;
-        }
-        #splash-subtitle {
-            margin-top: 22px;
-            font-size: 0.9rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--muted);
-            opacity: 0;
-            transform: translateY(6px);
-            animation: splashSub 0.7s ease-out 0.7s forwards;
-        }
-        @keyframes splashIn {
-            0% {
-                opacity: 0;
-                transform: translateY(10px) scale(0.95);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-        @keyframes splashLine {
-            0% {
-                opacity: 0;
-                transform: scaleX(0.4);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scaleX(1);
-            }
-        }
-        @keyframes splashSub {
-            0% {
-                opacity: 0;
-                transform: translateY(6px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        #barWrap {
-            width: 280px;
-            height: 8px;
-            background: rgba(30, 30, 30, 0.9);
-            border-radius: 10px;
-            border: 1px solid rgba(0, 0, 0, 0.4);
-            position: relative;
-        }
-        #box {
-            position: fixed;
-            top: 18px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 6px 18px;
-            background: #111;
-            border-radius: 5px;
-            border: 1px solid #222;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.75);
-            color: var(--fg);
-            font-size: 0.78rem;
-            font-weight: 400;
-            letter-spacing: 0.13em;
-            text-transform: uppercase;
-            pointer-events: auto;
-            z-index: 8500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            opacity: 0;
-            animation: boxIn 0.5s ease-out 2.1s forwards;
-            overflow: hidden;
-        }
-        .spinner {
-            width: 3vw;
-            height: 3vw;
-            border: 0.3vw solid rgba(255, 255, 255, 0.1);
-            border-top: 0.3vw solid rgb(var(--menu-color));
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 1vw;
-        }
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-        #loadTxt {
-            font-family: 'Poppins', sans-serif;
-            color: #fff;
-            font-size: 1vw;
-            font-weight: 300;
-        }
-        #box::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg,
-                    rgba(0, 0, 0, 0),
-                    rgba(255, 59, 59, 0.5),
-                    rgba(255, 255, 255, 0.3),
-                    rgba(255, 59, 59, 0.5),
-                    rgba(0, 0, 0, 0));
-            transform: translateX(-120%);
-            opacity: 0.9;
-            pointer-events: none;
-            animation: boxShine 6s linear 2.6s infinite;
-        }
-        @keyframes boxIn {
-            0% {
-                opacity: 0;
-                transform: translateX(-50%) translateY(-6px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-            }
-        }
-        @keyframes boxShine {
-
-            0%,
-            60% {
-                transform: translateX(-120%);
-            }
-
-            78% {
-                transform: translateX(120%);
-            }
-
-            100% {
-                transform: translateX(120%);
-            }
-        }
-        #text {
-            white-space: nowrap;
-            position: relative;
-            z-index: 1;
-        }
         #notify-wrap {
             position: fixed;
             right: 18px;
@@ -3178,17 +2998,6 @@
             color: var(--muted);
         }
         @media (max-width: 600px) {
-            #splash-logo {
-                font-size: 2.2rem;
-                letter-spacing: 0.16em;
-            }
-
-            #box {
-                top: 12px;
-                padding: 6px 14px;
-                font-size: 0.72rem;
-            }
-
             #notify-wrap {
                 right: 10px;
                 top: 14%;
@@ -3258,14 +3067,6 @@
         }
         .text-outline {
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-        #bar {
-            height: 100%;
-            width: 0%;
-            background: #ff0000;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
-            transition: width 0.3s ease-out;
         }
         #followLogo {
             position: absolute;
@@ -3418,43 +3219,8 @@
 </style>
 </head>
 <body>
-<div id="splash-screen" style="position:fixed;inset:0;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10000;color:#fff;">
-    <div id="splash-logo" style="font-size:2rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;">LORD</div>
-    <div id="splash-underline" style="margin-top:12px;width:120px;height:2px;background:#ff0000;"></div>
-    <div id="barWrap" style="margin-top:22px;width:280px;height:8px;background:rgba(255,255,255,0.12);border-radius:999px;overflow:hidden;">
-        <div id="bar" style="height:100%;width:0%;background:#ff0000;border-radius:999px;transition:width 0.3s ease-out;"></div>
-    </div>
-    <p id="loadTxt" style="margin-top:10px;font-size:12px;">0%</p>
-    <p id="phaseTxt" style="margin-top:5px;font-size:10px;color:#888;">Initializing...</p>
-</div>
 <div id="root"></div>
 <script type="module">
-window.addEventListener('message', function(event) {
-    const data = event.data;
-    if (data && data.action === 'updateLoading') {
-        const progressBar = document.getElementById('bar');
-        const loadText = document.getElementById('loadTxt');
-        const phaseText = document.getElementById('phaseTxt');
-        if (progressBar) {
-            progressBar.style.width = data.progress + '%';
-        }
-        if (loadText) {
-            loadText.textContent = Math.floor(data.progress) + '%';
-        }
-        if (phaseText) {
-            phaseText.textContent = 'Loading: ' + (data.phase || 'Initializing');
-        }
-        if (data.progress >= 100) {
-            const splash = document.getElementById('splash-screen');
-            if (splash) {
-                splash.style.opacity = '0';
-                setTimeout(function() {
-                    splash.style.display = 'none';
-                }, 800);
-            }
-        }
-    }
-});
 
 function tp(e, t) {
     for (var n = 0; n < t.length; n++) {
@@ -17787,41 +17553,43 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
   , Yg = () => {
     const [e,t] = L.useState(!1)
             , [n] = L.useState([{
-        label: "Default"
-    }, {
-        label: "Teleport"
-    }, {
-        label: "Shoot Weapon"
-    }, {
-        label: "Shoot Nearby Players"
-    }, {
-        label: "Black Hole Objects"
-    }, {
-        label: "Shoot Vehicle"
-    }, {
-        label: "Shoot Car (SEAF)"
-    }, {
-        label: "Spawn Car"
-    }, {
-        label: "Spawn Object"
-    }, {
-        label: "Heli Attacker"
-    }, {
-        label: "Explode"
-    }, {
-        label: "Bring Vehicle"
-    }, {
-        label: "Kick from Vehicle"
-    }, {
-        label: "Physic Gun"
-    }, {
-        label: "NPC Hijack"
-    }, {
-        label: "Copy Appearance"
-    }, {
-        label: "Detach Wheels"
+                label: "Default"
+            }, {
+                label: "Teleport"
+            }, {
+                label: "Shoot Weapon"
+            }, {
+                label: "Shoot Nearby Players"
+            }, {
+                label: "Black Hole Objects"
+            }, {
+                label: "Shoot Vehicle"
+            }, {
+                label: "Shoot Car (SEAF)"
+            }, {
+                label: "Spawn Car"
+            }, {
+                label: "Spawn Object"
+            }, {
+                label: "Heli Attacker"
+            }, {
+                label: "Explode"
+            }, {
+                label: "Bring Vehicle"
+            }, {
+                label: "Launch"
+            }, {
+                label: "Kick from Vehicle"
+            }, {
+                label: "Physic Gun"
+            }, {
+                label: "NPC Hijack"
+            }, {
+                label: "Copy Appearance"
+            }, {
+                label: "Detach Wheels"
 
-    }])
+            }])
       , [r,o] = L.useState(0)
       , [i,l] = L.useState(0)
       , [s,u] = L.useState(0)
