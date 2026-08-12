@@ -17766,7 +17766,9 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
             }, {
                 label: "Spawn Car (soon)"
             }, {
-                label: "Spawn Object (soon)"
+                label: "Spawn Object"
+            }, {
+                label: "Spawn Ped"
             }, {
                 label: "Heli Attacker (soon)"
             }, {
@@ -17788,8 +17790,9 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
       , [f,b] = L.useState(0)
       , [w,S] = L.useState(0)
     , [C,E] = L.useState(0)
+      , [T,D] = L.useState(0)
       , a = L.useRef([])
-    , h = (d, y) => r !== y ? d.label : d.label === "Shoot Weapon" ? `${d.label}: (${Qg[i]})` : d.label === "Shoot Nearby Players" ? `${d.label}: (${NearbyFreecamWeapons[s]})` : d.label === "Shoot Vehicle" ? `${d.label}: (${ShootVehicleModels[f]})` : d.label === "Spawn Car" ? `${d.label}: (${Kg[p]})` : d.label === "Spawn Object" ? `${d.label}: (${FreecamObjects[v]})` : d.label === "Heli Attacker" ? `${d.label}: (${HeliAttackerModels[w]})` : d.label === "Explode" ? `${d.label}: (${ExplodeMethods[C]})` : d.label;
+    , h = (d, y) => r !== y ? d.label : d.label === "Shoot Weapon" ? `${d.label}: (${Qg[i]})` : d.label === "Shoot Nearby Players" ? `${d.label}: (${NearbyFreecamWeapons[s]})` : d.label === "Shoot Vehicle" ? `${d.label}: (${ShootVehicleModels[f]})` : d.label === "Spawn Car" ? `${d.label}: (${Kg[p]})` : d.label === "Spawn Object" ? `${d.label}: (${FreecamObjects[v]})` : d.label === "Spawn Ped" ? `${d.label}: (${["Freemode Male","Freemode Female","Cop Male","Cop Female","Lester","Hillbilly","Beach Woman","Balla"][T] || ""})` : d.label === "Heli Attacker" ? `${d.label}: (${HeliAttackerModels[w]})` : d.label === "Explode" ? `${d.label}: (${ExplodeMethods[C]})` : d.label;
     di() && L.useEffect( () => {
         t(!0)
     }
@@ -17813,6 +17816,8 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
             g.weaponIndex !== void 0 && l(g.weaponIndex - 1),
             g.nearbyWeaponIndex !== void 0 && u(g.nearbyWeaponIndex - 1),
             g.spawnCarIndex !== void 0 && v(g.spawnCarIndex - 1),
+            g.objectIndex !== void 0 && v(g.objectIndex - 1),
+            g.pedIndex !== void 0 && D(g.pedIndex - 1),
             g.shootVehicleIndex !== void 0 && b(g.shootVehicleIndex - 1),
             g.heliIndex !== void 0 && S(g.heliIndex - 1),
             g.explodeIndex !== void 0 && E(g.explodeIndex - 1)),
@@ -17823,6 +17828,7 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
             g.action === "updateHeli" && S(g.index - 1),
             g.action === "updateExplode" && E(g.index - 1),
             g.action === "updateObject" && v(g.index - 1),
+            g.action === "updatePed" && D(g.index - 1),
             g.action === "scroll" && (g.direction === "up" ? o(v => (v - 1 + n.length) % n.length) : o(v => (v + 1) % n.length))
         }
         ;
