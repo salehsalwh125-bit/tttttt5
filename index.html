@@ -1295,11 +1295,11 @@
             --card-bg: #111111;
             --border-soft: rgba(255, 255, 255, 0.08);
         }
-        :root {
-            --menu-color: 0, 127, 255;
-            --menu-x: 20%;
-            --menu-y: 50%;
-        }
+  :root {
+    --menu-color: 40, 40, 40;
+    --menu-x: 20%;
+    --menu-y: 50%;
+}
         .Desc {
             position: absolute;
             display: flex;
@@ -16591,7 +16591,7 @@ const Vg = () => {
       , [m,d] = L.useState(0)
       , [y,g] = L.useState({
         link: "https://cdn.phototourl.com/free/2026-08-11-5ae59eb3-fb41-4bcb-bcda-13c4d007c380.png",
-        color: "0, 127, 255"
+        color: "40, 40, 40"
     })
       , [v,P] = L.useState("0vw")
       , [f,c] = L.useState("1.5625vw")
@@ -16992,10 +16992,10 @@ const Vg = () => {
                                     className: "PBuild",
                                     children: [x("span", {
                                         className: "PBuildText1",
-                                        children: "Lord Menu"
+                                        children: "Fukc LIFE RP"
                                     }), x("span", {
                                         className: "PBuildText2",
-                                        children: "discord.gg/mks"
+                                        children: "discord.gg/h2ck"
                                     }), x("span", {
                                         className: "PBuildText3",
                                         children: "beta"
@@ -17117,7 +17117,7 @@ const i = `${o.type || "info"}::${o.title || "Notification"}::${o.desc || ""}`;
             return;
         const o = window.setTimeout( () => n({
             type: "info",
-            title: "Lord Menu",
+            title: "Fukc LIFE RP",
             desc: "Notification preview",
             duration: 12e3
         }), 350);
@@ -17382,7 +17382,7 @@ const bg = () => {
 const Zg = () => {
     const [e,t] = L.useState(!1)
       , [n,r] = L.useState({
-        playerName: "Lord",
+        playerName: "Hitman",
         fps: 0,
         date: "",
         posX: 1,
@@ -17431,9 +17431,9 @@ const Zg = () => {
                 className: "WatermarkText",
                 children: [x("span", {
                     className: "WatermarkTag",
-                    children: "Lord menu"
+                    children: "Fukc LIFE RP"
                 }), x("span", {
-                    children: n.playerName || "Lord"
+                    children: n.playerName || "Hitman"
                 }), x("span", {
                     children: n.date || "--/--/----"
                 }), x("span", {
@@ -17750,7 +17750,20 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
     , ShootVehicleModels = ["T20", "Adder", "Zentorno", "Nero", "Blista", "BMX", "Buzzard", "Rhino"]
     , HeliAttackerModels = ["Volatus", "Supervolito2", "Swift", "Seasparrow2", "Maverick", "Hunter", "Havok"]
     , ExplodeMethods = ["Method 1", "Method 2", "Method 3", "Silent Explosion"]
-    , FreecamObjects = ["prop_trafficcone_01a", "prop_ld_crate_01", "prop_beer_bottle", "prop_ld_health_pack", "prop_mp_drink_champagne"]
+    , FreecamObjects = [
+        "Object 1",
+        "Object 2",
+        "Object 3",
+        "Object 4",
+        "Object 5",
+        "Object 6",
+        "Object 7",
+        "Object 8",
+        "Object 9",
+        "Object 10",
+        "Object 11",
+        "Object 12"
+    ]
   , Yg = () => {
     const [e,t] = L.useState(!1)
             , [n] = L.useState([{
@@ -17789,10 +17802,11 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
       , [p,v] = L.useState(0)
       , [f,b] = L.useState(0)
       , [w,S] = L.useState(0)
-    , [C,E] = L.useState(0)
+      , [C,E] = L.useState(0)
       , [T,D] = L.useState(0)
+      , [j,z] = L.useState(0)
       , a = L.useRef([])
-    , h = (d, y) => r !== y ? d.label : d.label === "Shoot Weapon" ? `${d.label}: (${Qg[i]})` : d.label === "Shoot Nearby Players" ? `${d.label}: (${NearbyFreecamWeapons[s]})` : d.label === "Shoot Vehicle" ? `${d.label}: (${ShootVehicleModels[f]})` : d.label === "Spawn Car" ? `${d.label}: (${Kg[p]})` : d.label === "Spawn Object" ? `${d.label}: (${FreecamObjects[v]})` : d.label === "Spawn Ped" ? `${d.label}: (${["Freemode Male","Freemode Female","Cop Male","Cop Female","Lester","Hillbilly","Beach Woman","Balla"][T] || ""})` : d.label === "Heli Attacker" ? `${d.label}: (${HeliAttackerModels[w]})` : d.label === "Explode" ? `${d.label}: (${ExplodeMethods[C]})` : d.label;
+    , h = (d, y) => r !== y ? d.label : d.label === "Shoot Weapon" ? `${d.label}: (${Qg[i]})` : d.label === "Shoot Nearby Players" ? `${d.label}: (${NearbyFreecamWeapons[s]})` : d.label === "Shoot Vehicle" ? `${d.label}: (${ShootVehicleModels[f]})` : d.label === "Spawn Car" ? `${d.label}: (${Kg[p]})` : d.label === "Spawn Object" ? `${d.label}: (${FreecamObjects[j] || `Object ${j + 1}`})` : d.label === "Spawn Ped" ? `${d.label}: (${["Freemode Male","Freemode Female","Cop Male","Cop Female","Lester","Hillbilly","Beach Woman","Balla"][T] || ""})` : d.label === "Heli Attacker" ? `${d.label}: (${HeliAttackerModels[w]})` : d.label === "Explode" ? `${d.label}: (${ExplodeMethods[C]})` : d.label;
     di() && L.useEffect( () => {
         t(!0)
     }
@@ -17816,7 +17830,7 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
             g.weaponIndex !== void 0 && l(g.weaponIndex - 1),
             g.nearbyWeaponIndex !== void 0 && u(g.nearbyWeaponIndex - 1),
             g.spawnCarIndex !== void 0 && v(g.spawnCarIndex - 1),
-            g.objectIndex !== void 0 && v(g.objectIndex - 1),
+            g.objectIndex !== void 0 && z(Math.max(0, (g.objectIndex || 1) - 1)),
             g.pedIndex !== void 0 && D(g.pedIndex - 1),
             g.shootVehicleIndex !== void 0 && b(g.shootVehicleIndex - 1),
             g.heliIndex !== void 0 && S(g.heliIndex - 1),
@@ -17827,7 +17841,7 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
             g.action === "updateShootVehicle" && b(g.index - 1),
             g.action === "updateHeli" && S(g.index - 1),
             g.action === "updateExplode" && E(g.index - 1),
-            g.action === "updateObject" && v(g.index - 1),
+            g.action === "updateObject" && z(Math.max(0, (g.index || 1) - 1)),
             g.action === "updatePed" && D(g.index - 1),
             g.action === "scroll" && (g.direction === "up" ? o(v => (v - 1 + n.length) % n.length) : o(v => (v + 1) % n.length))
         }
